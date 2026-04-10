@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brad Kreit — Foresight Research & Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714; --warm-dark: #2c2620; --cream: #f5f0e8;
+    --mid: #9c8b78; --accent: #b85c3a; --rule: #d4c9b8; --white: #fdfaf5;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: rgba(253,250,245,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: .04em; }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links a { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; min-height: 52vh;
+    padding: 0 6rem; gap: 4rem; padding-top: 72px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-left { position: relative; padding: 4rem 0; padding-left: 2rem; }
+  .hero-left::before {
+    content: ''; position: absolute; left: 0; top: 4rem; bottom: 4rem;
+    width: 1px; background: var(--accent); opacity: .35;
+  }
+  .hero-right { padding: 4rem 0 4rem 4rem; border-left: 1px solid var(--rule); }
+
+  .eyebrow { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; animation: up .7s .1s both; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; line-height: 1.0; color: var(--ink); margin-bottom: .8rem; animation: up .7s .25s both; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 1.8vw, 1.4rem); font-style: italic; color: var(--mid); animation: up .7s .4s both; }
+  .hero-bio { font-size: .95rem; line-height: 1.85; color: var(--warm-dark); margin-bottom: 2rem; animation: up .7s .5s both; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; animation: up .7s .65s both; }
+
+  .btn { padding: .65rem 1.8rem; font-family: 'DM Sans', sans-serif; font-size: .75rem; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; transition: .2s; }
+  .btn-fill { background: var(--accent); color: var(--white); border: 1.5px solid var(--accent); }
+  .btn-fill:hover { background: transparent; color: var(--accent); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--rule); }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  /* THREAD STRIP */
+  .thread-strip { display: grid; grid-template-columns: 280px 1fr; background: var(--ink); min-height: 380px; }
+  .thread-photo { overflow: hidden; }
+  .thread-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(20%) contrast(1.05); }
+  .thread-content { padding: 3.5rem 5rem; display: flex; flex-direction: column; justify-content: center; gap: 2rem; background: var(--ink); }
+  .thread-label { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
+  .thread-topics { display: flex; flex-direction: column; }
+  .thread-topic { display: flex; align-items: baseline; gap: 1.1rem; padding: .8rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .thread-topic:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+  .thread-num { font-family: 'Cormorant Garamond', serif; font-size: .85rem; color: var(--accent); opacity: .7; min-width: 1.4rem; }
+  .thread-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); }
+  .thread-aside { margin-left: auto; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); white-space: nowrap; }
+
+  /* SECTIONS */
+  .section { padding: 6rem; }
+  .section-cream { background: var(--cream); }
+  .section-dark { background: var(--ink); }
+  .s-label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mid); margin-bottom: 1rem; }
+  .s-label-light { color: rgba(255,255,255,.4); }
+  .s-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,2.8rem); font-weight: 300; color: var(--ink); margin-bottom: 1rem; }
+  .s-heading-light { color: var(--white); }
+  .s-intro { font-size: .9rem; line-height: 1.8; color: var(--mid); max-width: 580px; margin-bottom: 3rem; }
+
+  /* PUB GRID */
+  .pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .pub-card { display: block; text-decoration: none; color: inherit; padding: 2rem; border: 1px solid var(--rule); background: var(--white); position: relative; overflow: hidden; transition: box-shadow .25s, background .25s, border-color .25s; }
+  .pub-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+  .pub-card:hover { background: var(--cream); border-color: transparent; box-shadow: 0 8px 32px rgba(26,23,20,.09); }
+  .pub-card:hover::before { transform: scaleX(1); }
+  .pub-meta { display: flex; align-items: center; gap: .7rem; margin-bottom: .8rem; }
+  .pub-year { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+  .pub-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--rule); flex-shrink: 0; }
+  .pub-topic { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); }
+  .pub-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: .6rem; }
+  .pub-desc { font-size: .83rem; line-height: 1.7; color: var(--mid); margin-bottom: .8rem; }
+  .pub-byline { font-size: .7rem; color: var(--mid); opacity: .7; font-style: italic; }
+  .pub-link { display: inline-block; margin-top: .9rem; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); opacity: 0; transition: opacity .2s; }
+  .pub-card:hover .pub-link { opacity: 1; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .skill-card { background: var(--white); padding: 2.2rem; border-top: 2px solid var(--accent); transition: transform .25s, box-shadow .25s; }
+  .skill-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(26,23,20,.07); }
+  .skill-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--rule); line-height: 1; margin-bottom: .5rem; }
+  .skill-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--ink); margin-bottom: .7rem; }
+  .skill-desc { font-size: .88rem; line-height: 1.75; color: var(--warm-dark); }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--rule); }
+  .project-card { padding: 2rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); text-decoration: none; color: inherit; display: block; transition: background .2s; }
+  .project-card:nth-child(3n) { border-right: none; }
+  .project-card:nth-child(4), .project-card:nth-child(5), .project-card:nth-child(6) { border-bottom: none; }
+  .project-card:hover { background: #f9f5ed; }
+  .project-year { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .7rem; }
+  .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: .6rem; line-height: 1.3; }
+  .project-desc { font-size: .83rem; line-height: 1.7; color: var(--mid); }
+  .project-link { display: inline-block; margin-top: 1rem; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); opacity: 0; transition: opacity .2s; }
+  .project-card:hover .project-link { opacity: 1; }
+
+  /* TALKS */
+  .talk { display: grid; grid-template-columns: 160px 1fr auto; align-items: center; gap: 2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--rule); }
+  .talk:first-child { border-top: 1px solid var(--rule); }
+  .talk-meta { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); line-height: 1.6; }
+  .talk-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); }
+  .talk-badge { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .28rem .75rem; border: 1px solid var(--rule); color: var(--mid); white-space: nowrap; }
+
+  /* OUTCOMES */
+  .outcomes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; margin-bottom: 4rem; }
+  .outcome { padding-left: 1.4rem; border-left: 3px solid var(--accent); }
+  .outcome-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-bottom: .6rem; }
+  .outcome-desc { font-size: .85rem; line-height: 1.75; color: var(--warm-dark); }
+
+  /* CLIENTS */
+  .clients-section { background: var(--ink); padding: 6rem; }
+  .clients-grid { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+  .client-tag { padding: .4rem 1.1rem; border: 1px solid rgba(255,255,255,.18); font-size: .78rem; color: rgba(255,255,255,.6); transition: border-color .2s, color .2s; }
+  .client-tag:hover { border-color: var(--accent); color: var(--white); }
+
+  /* CONTACT */
+  .contact-section { display: grid; grid-template-columns: 1fr 1fr; }
+  .contact-left { padding: 6rem; background: var(--ink); display: flex; flex-direction: column; justify-content: center; }
+  .contact-right { padding: 6rem; background: var(--cream); display: flex; flex-direction: column; justify-content: center; gap: 2rem; }
+  .contact-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,2.8rem); font-weight: 300; color: var(--white); margin-bottom: 1rem; }
+  .contact-sub { font-size: .9rem; line-height: 1.8; color: rgba(255,255,255,.55); margin-bottom: 2.5rem; max-width: 360px; }
+  .contact-link { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: .3rem; display: inline-block; transition: border-color .2s; }
+  .contact-link:hover { border-color: var(--accent); }
+  .contact-detail { display: flex; flex-direction: column; gap: .3rem; }
+  .contact-detail-label { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); }
+  .contact-detail-value { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+
+  /* FOOTER */
+  footer { background: var(--ink); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.08); }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(255,255,255,.4); }
+  .footer-note { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,.25); }
+
+  /* ANIMATIONS */
+  @keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 5rem 2rem 2rem; gap: 0; min-height: auto; }
+    .hero-left { padding: 2rem 0 1.5rem 1.5rem; }
+    .hero-left::before { top: 2rem; bottom: 1.5rem; }
+    .hero-right { padding: 1.5rem 0 3rem; border-left: none; border-top: 1px solid var(--rule); }
+    .thread-strip { grid-template-columns: 1fr; }
+    .thread-photo { height: 260px; }
+    .thread-content { padding: 2.5rem 2rem; }
+    .thread-aside { display: none; }
+    .section { padding: 4rem 2rem; }
+    .pub-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card { border-right: none; }
+    .project-card:nth-child(4), .project-card:nth-child(5) { border-bottom: 1px solid var(--rule); }
+    .project-card:last-child { border-bottom: none; }
+    .talk { grid-template-columns: 1fr; gap: .5rem; }
+    .outcomes-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .clients-section { padding: 4rem 2rem; }
+    .contact-section { grid-template-columns: 1fr; }
+    .contact-left, .contact-right { padding: 3rem 2rem; }
+    footer { padding: 1.5rem 2rem; flex-direction: column; gap: .5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Brad Kreit</a>
+  <ul class="nav-links">
+    <li><a href="#deloitte">Deloitte Research</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#projects">IFTF Projects</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Foresight Research &amp; Strategy</p>
+    <h1 class="hero-name">Brad<br>Kreit</h1>
+    <p class="hero-title">Senior Research Leader &amp; Futurist</p>
+  </div>
+  <div class="hero-right">
+    <p class="hero-bio">I make sense of large-scale change and help organizations prepare for it. As a synthesizer and facilitator, I bridge disciplines to surface what's emerging — then turn those signals into strategy.<br><br>Currently: Senior Research Leader, Deloitte Center for Integrated Research, focused on the future of work.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-fill" href="#deloitte">View My Work</a>
+      <a class="btn btn-outline" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- THREAD STRIP -->
+<div class="thread-strip">
+  <div class="thread-photo">
+    <img src="https://static.wixstatic.com/media/cb5a7f_cd9c6d69552a4c89b8ab5b6cfb9a5644~mv2.jpg/v1/crop/x_0,y_404,w_1232,h_996/fill/w_560,h_720,al_c,q_85,enc_avif,quality_auto/Brad%20Kreit1.jpg" alt="Brad Kreit">
+  </div>
+  <div class="thread-content">
+    <div class="thread-label">Currently thinking about</div>
+    <div class="thread-topics">
+      <div class="thread-topic">
+        <span class="thread-num">01</span>
+        <span class="thread-text">Human &amp; machine collaboration at work</span>
+        <span class="thread-aside">Deloitte Insights</span>
+      </div>
+      <div class="thread-topic">
+        <span class="thread-num">02</span>
+        <span class="thread-text">Workforce data, trust &amp; shared value</span>
+        <span class="thread-aside">Quantified Org series</span>
+      </div>
+      <div class="thread-topic">
+        <span class="thread-num">03</span>
+        <span class="thread-text">The shifting demographics of work</span>
+        <span class="thread-aside">Future of Work</span>
+      </div>
+      <div class="thread-topic">
+        <span class="thread-num">04</span>
+        <span class="thread-text">Long-range foresight &amp; organizational resilience</span>
+        <span class="thread-aside">IFTF legacy</span>
+      </div>
+      <div class="thread-topic">
+        <span class="thread-num">05</span>
+        <span class="thread-text">How teams adapt when AI scales</span>
+        <span class="thread-aside">Deloitte Insights</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DELOITTE -->
+<section class="section" id="deloitte">
+  <p class="s-label reveal">Deloitte Insights</p>
+  <h2 class="s-heading reveal">Published Research at Deloitte</h2>
+  <p class="s-intro reveal">As a Senior Research Leader with Deloitte's Center for Integrated Research, I produce rigorous, data-driven thought leadership on how AI, workforce data, and human-machine collaboration are reshaping organizations.</p>
+  <div class="pub-grid">
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/building-high-performing-teams.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">2026</span><span class="pub-dot"></span><span class="pub-topic">Human Capabilities · Resilience</span></div>
+      <div class="pub-title">Building High-Performing Teams</div>
+      <p class="pub-desc">Explores how human capabilities — not just technical skills — may be the key differentiator in building resilient, high-performing teams as AI reshapes organizational work models.</p>
+      <p class="pub-byline">Deloitte Center for Integrated Research</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/ai-in-the-workplace.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">Dec 2025</span><span class="pub-dot"></span><span class="pub-topic">Early Career · Gen AI</span></div>
+      <div class="pub-title">Entry-Level Jobs &amp; Reskilling for AI</div>
+      <p class="pub-desc">New data from a survey of 11,900+ individuals surfaces challenges and opportunities for employers — including how to preserve learning pathways for early-career workers in an AI-accelerated workplace.</p>
+      <p class="pub-byline">With Sue Cantrell &amp; Monika Mahto · Deloitte Insights</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/ai-roi-and-team-structure.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">2025</span><span class="pub-dot"></span><span class="pub-topic">AI Outcomes · Team Design</span></div>
+      <div class="pub-title">Team Structure and AI Outcomes</div>
+      <p class="pub-desc">Counter-intuitive findings: the teams getting the strongest AI results aren't the smallest — they're the most connected and cognitively diverse. A reframe for organizations scaling AI deployment.</p>
+      <p class="pub-byline">With Monika Mahto · Deloitte Insights</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/strategies-for-workforce-evolution.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">2025</span><span class="pub-dot"></span><span class="pub-topic">Workforce Demographics · AI</span></div>
+      <div class="pub-title">Strategies for Workforce Evolution</div>
+      <p class="pub-desc">Examines how AI and demographic shifts — retiring experienced workers, shrinking pipelines — are combining to demand new approaches to workforce agility, knowledge transfer, and upskilling.</p>
+      <p class="pub-byline">Deloitte Center for Integrated Research</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/overcoming-the-tech-talent-shortage-amid-transformation.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">Jun 2024</span><span class="pub-dot"></span><span class="pub-topic">Tech Talent · Workforce Strategy</span></div>
+      <div class="pub-title">Navigating the Tech Talent Shortage</div>
+      <p class="pub-desc">Analyzes the structural forces driving the tech talent gap and outlines how organizations can transform their approach to planning, attracting, and activating technical talent.</p>
+      <p class="pub-byline">With Nate Paynter, Manoj Mishra, Monika Mahto &amp; Sue Cantrell · Deloitte Insights</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/global/en/issues/work/unlocking-the-potential-of-the-quantified-organization.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">2023–2024</span><span class="pub-dot"></span><span class="pub-topic">Workforce Data · Human Performance</span></div>
+      <div class="pub-title">The Quantified Organization (Series Lead)</div>
+      <p class="pub-desc">A multi-report series examining how organizations can harness workforce data to drive human performance — reframing surveillance as shared value. Based on surveys of 2,000+ workers and 50+ case studies.</p>
+      <p class="pub-byline">Lead author across 4 chapters · Deloitte Insights</p>
+      <span class="pub-link">Read the series →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/human-machine-collaboration.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">Nov 2022</span><span class="pub-dot"></span><span class="pub-topic">AI &amp; Future of Work</span></div>
+      <div class="pub-title">Strengthening the Bonds of Human and Machine Collaboration</div>
+      <p class="pub-desc">Drawing on qualitative interviews across 30 companies, this article examines how human-AI collaboration is reshaping workplace experience — and what organizations must do to ensure these partnerships benefit workers.</p>
+      <p class="pub-byline">With Sue Cantrell &amp; Thomas H. Davenport · Deloitte Insights</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="section section-cream" id="expertise">
+  <p class="s-label reveal">Expertise</p>
+  <h2 class="s-heading reveal">What I bring to the table</h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-num">01</div>
+      <div class="skill-title">Long-Term Foresight &amp; Scenarios</div>
+      <p class="skill-desc">Using qualitative research, signals scanning, expert interviews, and cross-industry synthesis to map the decade ahead — provoking insight and shaping action in the present. I work as both individual contributor and project leader, regularly managing research budgets of $500K+.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">02</div>
+      <div class="skill-title">Research Team Leadership</div>
+      <p class="skill-desc">Organizing and managing multidisciplinary research teams — assigning deep-dive topics, editing contributions, and weaving individual findings into a coherent, compelling narrative that can be communicated and acted on at scale.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">03</div>
+      <div class="skill-title">Group Facilitation</div>
+      <p class="skill-desc">Designing and running workshops that move groups beyond their current thinking — from strategy and visioning sessions to innovation sprints and futures methods trainings, with clients across industries around the world.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">04</div>
+      <div class="skill-title">Strategic Communications</div>
+      <p class="skill-desc">Translating complex foresight research into reports, presentations, and keynotes that are clear and accessible without losing the provocation and depth that make the work valuable. Experienced in multi-format delivery: video, visual maps, in-person conference, and print.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IFTF PROJECTS -->
+<section class="section" id="projects">
+  <p class="s-label reveal">IFTF Projects</p>
+  <h2 class="s-heading reveal">Flagship research at Institute for the Future</h2>
+  <p class="s-intro reveal">Each project involved designing a bespoke research process, assembling and leading the team, developing the overarching narrative, and presenting findings to sponsoring organizations.</p>
+  <div class="projects-grid reveal">
+    <a class="project-card" href="https://www.iftf.org/motd2021-2031/" target="_blank">
+      <div class="project-year">2021 · Climate</div>
+      <div class="project-title">Toward Climate Positive Organizations</div>
+      <p class="project-desc">Framing the climate crisis as the defining strategic force of the 2020s — and helping organizations act with urgency in a longer timeframe than usual.</p>
+      <span class="project-link">View project →</span>
+    </a>
+    <a class="project-card" href="https://www.iftf.org/motd2020-2030/" target="_blank">
+      <div class="project-year">2020 · Innovation</div>
+      <div class="project-title">Organizing for Future Readiness</div>
+      <p class="project-desc">Analyzing how converging advances in biotech, energy, and materials science will open new strategic frontiers and demand organizational resilience.</p>
+      <span class="project-link">View project →</span>
+    </a>
+    <a class="project-card" href="https://www.iftf.org/powershifts/" target="_blank">
+      <div class="project-year">2019 · Geopolitics</div>
+      <div class="project-title">The Age of Distributed Superpowers</div>
+      <p class="project-desc">A year-long study of how climate change, automation, and institutional volatility are redistributing power and remaking the global operational environment.</p>
+      <span class="project-link">View project →</span>
+    </a>
+    <a class="project-card" href="http://www.iftf.org/remodelingtrust/" target="_blank">
+      <div class="project-year">2018 · Society</div>
+      <div class="project-title">Remodeling Trust</div>
+      <p class="project-desc">Examining how emerging forces are challenging traditional models of trust — and what new frameworks are needed for brands, institutions, and individuals.</p>
+      <span class="project-link">View project →</span>
+    </a>
+    <a class="project-card" href="http://www.iftf.org/our-work/people-technology/tech-futures/reconfiguring-reality/" target="_blank">
+      <div class="project-year">2017 · Technology</div>
+      <div class="project-title">Toward an Internet of Actions</div>
+      <p class="project-desc">Forecasting how advances across the technology stack will create a world of intelligent, autonomous objects — and what values we need to encode into them.</p>
+      <span class="project-link">View project →</span>
+    </a>
+    <a class="project-card" href="http://www.iftf.org/wheneverythingismedia/" target="_blank">
+      <div class="project-year">2016 · Media</div>
+      <div class="project-title">When Everything is Media</div>
+      <p class="project-desc">Arguing that the next decade wouldn't produce one "next big thing" — but a communications landscape reshaped by AI, VR/AR, and ambient computing combined.</p>
+      <span class="project-link">View project →</span>
+    </a>
+  </div>
+</section>
+
+<!-- TALKS -->
+<section class="section section-cream" id="talks">
+  <p class="s-label reveal">Talks &amp; Keynotes</p>
+  <h2 class="s-heading reveal">Delivered on five continents</h2>
+  <div class="reveal">
+    <div class="talk">
+      <div class="talk-meta">2019<br>Global Digital Conference</div>
+      <div class="talk-title">Toward an Internet of Actions</div>
+      <span class="talk-badge">Opening Keynote</span>
+    </div>
+    <div class="talk">
+      <div class="talk-meta">Oct 2019<br>IFTF Ten Year Forecast</div>
+      <div class="talk-title">The Age of Distributed Superpowers</div>
+      <span class="talk-badge">Opening Keynote</span>
+    </div>
+    <div class="talk">
+      <div class="talk-meta">2021<br>Research Companion</div>
+      <div class="talk-title">Building Climate-Positive Organizations</div>
+      <span class="talk-badge">Keynote + Video</span>
+    </div>
+    <div class="talk">
+      <div class="talk-meta">2015 · Auckland, NZ<br>Beyond the Line of Sight</div>
+      <div class="talk-title">Seeds of Disruption — The Future of Food</div>
+      <span class="talk-badge">Closing Keynote</span>
+    </div>
+    <div class="talk">
+      <div class="talk-meta">2013<br>Healthy Communities Data Summit</div>
+      <div class="talk-title">Citizens, Communities and Open Health Data</div>
+      <span class="talk-badge">Opening Keynote</span>
+    </div>
+    <div class="talk">
+      <div class="talk-meta">Ongoing</div>
+      <div class="talk-title">Ask a Futurist — Technology Forecasting &amp; Strategy</div>
+      <span class="talk-badge">Panel / Workshop</span>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section">
+  <p class="s-label s-label-light reveal">Selected Clients</p>
+  <h2 class="s-heading s-heading-light reveal">Organizations I've served</h2>
+  <div class="clients-grid reveal">
+    <span class="client-tag">Facebook</span>
+    <span class="client-tag">Intel</span>
+    <span class="client-tag">Telstra</span>
+    <span class="client-tag">U.S. Department of Defense</span>
+    <span class="client-tag">Syngenta</span>
+    <span class="client-tag">Kaiser Permanente</span>
+    <span class="client-tag">Deloitte</span>
+    <span class="client-tag">Institute for the Future</span>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="section" id="outcomes">
+  <p class="s-label reveal">Client Outcomes</p>
+  <h2 class="s-heading reveal">How my work adds value</h2>
+  <p class="s-intro reveal">Past and current clients include Facebook, Intel, Telstra, the Department of Defense, Syngenta, Kaiser, and many others across for-profit, non-profit, and government sectors.</p>
+  <div class="outcomes-grid">
+    <div class="outcome reveal">
+      <div class="outcome-title">Strategic Planning</div>
+      <p class="outcome-desc">Providing an outside-in perspective on the external environment for ongoing strategy and long-range planning — giving clients a longer time horizon and preparing them for developments outside their normal frames of reference.</p>
+    </div>
+    <div class="outcome reveal">
+      <div class="outcome-title">Innovation &amp; Inspiration</div>
+      <p class="outcome-desc">Grounding long-term trends with concrete present-day examples to help product and innovation teams see new possibilities — and facilitating sessions that move groups beyond current thinking.</p>
+    </div>
+    <div class="outcome reveal">
+      <div class="outcome-title">Learning &amp; Development</div>
+      <p class="outcome-desc">Teaching foresight and futures methods to professionals worldwide, and helping them build strategies to connect foresight work to more traditional organizational processes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-left">
+    <p class="s-label s-label-light">Contact</p>
+    <h2 class="contact-heading">Let's work together</h2>
+    <p class="contact-sub">Whether you're looking for a keynote speaker, a research lead, a facilitation partner, or a strategic advisor on long-term change — I'd love to hear from you.</p>
+    <a class="contact-link" href="https://www.bradkreit.com/contact">Send a message →</a>
+  </div>
+  <div class="contact-right">
+    <div class="contact-detail">
+      <span class="contact-detail-label">Current Role</span>
+      <span class="contact-detail-value">Senior Research Leader, Deloitte Center for Integrated Research</span>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-label">Focus</span>
+      <span class="contact-detail-value">Future of Work</span>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-label">Background</span>
+      <span class="contact-detail-value">10+ years at Institute for the Future — Health, Technology, Food &amp; Global Trends</span>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-label">Website</span>
+      <span class="contact-detail-value">bradkreit.com</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Brad Kreit</span>
+  <span class="footer-note">Foresight Research &amp; Strategy</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
