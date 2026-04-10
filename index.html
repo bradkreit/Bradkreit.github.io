@@ -71,7 +71,6 @@
   /* SECTIONS */
   .section { padding: 6rem; }
   .section-cream { background: var(--cream); }
-  .section-dark { background: var(--ink); }
   .s-label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--mid); margin-bottom: 1rem; }
   .s-label-light { color: rgba(255,255,255,.4); }
   .s-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,2.8rem); font-weight: 300; color: var(--ink); margin-bottom: 1rem; }
@@ -119,6 +118,8 @@
   .talk:first-child { border-top: 1px solid var(--rule); }
   .talk-meta { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); line-height: 1.6; }
   .talk-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); }
+  .talk-title a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color .2s; }
+  .talk-title a:hover { border-color: var(--accent); }
   .talk-badge { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: .28rem .75rem; border: 1px solid var(--rule); color: var(--mid); white-space: nowrap; }
 
   /* OUTCOMES */
@@ -127,23 +128,36 @@
   .outcome-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-bottom: .6rem; }
   .outcome-desc { font-size: .85rem; line-height: 1.75; color: var(--warm-dark); }
 
-  /* CLIENTS */
-  .clients-section { background: var(--ink); padding: 6rem; }
-  .clients-grid { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
-  .client-tag { padding: .4rem 1.1rem; border: 1px solid rgba(255,255,255,.18); font-size: .78rem; color: rgba(255,255,255,.6); transition: border-color .2s, color .2s; }
-  .client-tag:hover { border-color: var(--accent); color: var(--white); }
-
   /* CONTACT */
   .contact-section { display: grid; grid-template-columns: 1fr 1fr; }
   .contact-left { padding: 6rem; background: var(--ink); display: flex; flex-direction: column; justify-content: center; }
   .contact-right { padding: 6rem; background: var(--cream); display: flex; flex-direction: column; justify-content: center; gap: 2rem; }
   .contact-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,2.8rem); font-weight: 300; color: var(--white); margin-bottom: 1rem; }
-  .contact-sub { font-size: .9rem; line-height: 1.8; color: rgba(255,255,255,.55); margin-bottom: 2.5rem; max-width: 360px; }
-  .contact-link { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: .3rem; display: inline-block; transition: border-color .2s; }
-  .contact-link:hover { border-color: var(--accent); }
+  .contact-sub { font-size: .9rem; line-height: 1.8; color: rgba(255,255,255,.55); margin-bottom: 1.5rem; max-width: 360px; }
   .contact-detail { display: flex; flex-direction: column; gap: .3rem; }
   .contact-detail-label { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); }
-  .contact-detail-value { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+  .contact-detail-value { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--ink); line-height: 1.4; }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: .5rem; }
+  .contact-form input,
+  .contact-form textarea {
+    padding: .75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 300;
+    background: transparent; border: 1px solid rgba(255,255,255,.25); color: var(--white);
+    outline: none; transition: border-color .2s;
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: rgba(255,255,255,.35); }
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--accent); }
+  .contact-form textarea { resize: vertical; }
+  .contact-form button {
+    padding: .65rem 1.8rem; background: var(--accent); color: var(--white);
+    font-family: 'DM Sans', sans-serif; font-size: .75rem; font-weight: 400;
+    letter-spacing: .1em; text-transform: uppercase; border: 1.5px solid var(--accent);
+    cursor: pointer; transition: .2s; align-self: flex-start;
+  }
+  .contact-form button:hover { background: transparent; color: var(--accent); }
 
   /* FOOTER */
   footer { background: var(--ink); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.08); }
@@ -176,7 +190,6 @@
     .project-card:last-child { border-bottom: none; }
     .talk { grid-template-columns: 1fr; gap: .5rem; }
     .outcomes-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .clients-section { padding: 4rem 2rem; }
     .contact-section { grid-template-columns: 1fr; }
     .contact-left, .contact-right { padding: 3rem 2rem; }
     footer { padding: 1.5rem 2rem; flex-direction: column; gap: .5rem; text-align: center; }
@@ -202,10 +215,10 @@
   <div class="hero-left">
     <p class="eyebrow">Foresight Research &amp; Strategy</p>
     <h1 class="hero-name">Brad<br>Kreit</h1>
-    <p class="hero-title">Senior Research Leader &amp; Futurist</p>
+    <p class="hero-title">Research Leader &amp; Futurist</p>
   </div>
   <div class="hero-right">
-    <p class="hero-bio">I make sense of large-scale change and help organizations prepare for it. As a synthesizer and facilitator, I bridge disciplines to surface what's emerging — then turn those signals into strategy.<br><br>Currently: Senior Research Leader, Deloitte Center for Integrated Research, focused on the future of work.</p>
+    <p class="hero-bio">I am a Research Leader with Deloitte's Center for Integrated Research where I develop thought leadership on the future of work. I previously spent more than a decade with Institute for the Future leading major foresight projects in global trends, technology, health and food. A sought after speaker, I've delivered keynotes and facilitated workshops on five continents.</p>
     <div class="hero-ctas">
       <a class="btn btn-fill" href="#deloitte">View My Work</a>
       <a class="btn btn-outline" href="#contact">Get in Touch</a>
@@ -254,7 +267,7 @@
 <section class="section" id="deloitte">
   <p class="s-label reveal">Deloitte Insights</p>
   <h2 class="s-heading reveal">Published Research at Deloitte</h2>
-  <p class="s-intro reveal">As a Senior Research Leader with Deloitte's Center for Integrated Research, I produce rigorous, data-driven thought leadership on how AI, workforce data, and human-machine collaboration are reshaping organizations.</p>
+  <p class="s-intro reveal">As a Research Leader with Deloitte's Center for Integrated Research, I produce rigorous, data-driven thought leadership on how AI, workforce data, and human-machine collaboration are reshaping organizations.</p>
   <div class="pub-grid">
 
     <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/building-high-performing-teams.html" target="_blank">
@@ -323,23 +336,23 @@
   <div class="skills-grid">
     <div class="skill-card reveal">
       <div class="skill-num">01</div>
-      <div class="skill-title">Long-Term Foresight &amp; Scenarios</div>
-      <p class="skill-desc">Using qualitative research, signals scanning, expert interviews, and cross-industry synthesis to map the decade ahead — provoking insight and shaping action in the present. I work as both individual contributor and project leader, regularly managing research budgets of $500K+.</p>
+      <div class="skill-title">Strategic Foresight &amp; Horizon Scanning</div>
+      <p class="skill-desc">Architecting long-term scenarios that help leaders make more resilient decisions. Using qualitative research, signals scanning, expert interviews, and cross-industry synthesis to map the decade ahead — provoking insight and shaping action in the present.</p>
     </div>
     <div class="skill-card reveal">
       <div class="skill-num">02</div>
-      <div class="skill-title">Research Team Leadership</div>
-      <p class="skill-desc">Organizing and managing multidisciplinary research teams — assigning deep-dive topics, editing contributions, and weaving individual findings into a coherent, compelling narrative that can be communicated and acted on at scale.</p>
+      <div class="skill-title">Executive Communication</div>
+      <p class="skill-desc">Translating complex research into compelling narratives through articles, keynotes, and workshops. Experienced in multi-format delivery — from Deloitte Insights publications and Wall Street Journal features to in-person conference keynotes and visual research maps.</p>
     </div>
     <div class="skill-card reveal">
       <div class="skill-num">03</div>
-      <div class="skill-title">Group Facilitation</div>
-      <p class="skill-desc">Designing and running workshops that move groups beyond their current thinking — from strategy and visioning sessions to innovation sprints and futures methods trainings, with clients across industries around the world.</p>
+      <div class="skill-title">Stakeholder Management</div>
+      <p class="skill-desc">Aligning diverse global teams and vendors to deliver complex, high-impact research projects. Orchestrating large-scale research campaigns and translating senior stakeholder goals into published insights that shape market conversations.</p>
     </div>
     <div class="skill-card reveal">
       <div class="skill-num">04</div>
-      <div class="skill-title">Strategic Communications</div>
-      <p class="skill-desc">Translating complex foresight research into reports, presentations, and keynotes that are clear and accessible without losing the provocation and depth that make the work valuable. Experienced in multi-format delivery: video, visual maps, in-person conference, and print.</p>
+      <div class="skill-title">Group Facilitation</div>
+      <p class="skill-desc">Designing and running workshops that move groups beyond their current thinking — from strategy and visioning sessions to innovation sprints and futures methods trainings, with clients across industries around the world.</p>
     </div>
   </div>
 </section>
@@ -348,7 +361,7 @@
 <section class="section" id="projects">
   <p class="s-label reveal">IFTF Projects</p>
   <h2 class="s-heading reveal">Flagship research at Institute for the Future</h2>
-  <p class="s-intro reveal">Each project involved designing a bespoke research process, assembling and leading the team, developing the overarching narrative, and presenting findings to sponsoring organizations.</p>
+  <p class="s-intro reveal">Throughout my time at IFTF, I led large-scale, multi-client research projects delivered in multiple formats including video, reports, visual maps, and at in-person conferences and workshops. This work involved designing a bespoke research process for each project, assembling and managing the project team, assigning, reviewing and editing contributions, developing the overarching narrative, and presenting the findings to sponsoring organizations. Below are some highlights:</p>
   <div class="projects-grid reveal">
     <a class="project-card" href="https://www.iftf.org/motd2021-2031/" target="_blank">
       <div class="project-year">2021 · Climate</div>
@@ -393,53 +406,38 @@
 <section class="section section-cream" id="talks">
   <p class="s-label reveal">Talks &amp; Keynotes</p>
   <h2 class="s-heading reveal">Delivered on five continents</h2>
+  <p class="s-intro reveal">I've delivered keynotes all over the world based on my research. While most of my talks are not available publicly, I've collected a few highlights below.</p>
   <div class="reveal">
     <div class="talk">
       <div class="talk-meta">2019<br>Global Digital Conference</div>
-      <div class="talk-title">Toward an Internet of Actions</div>
+      <div class="talk-title"><a href="http://www.youtube.com/watch?v=yHeUClAR_Rs" target="_blank">Toward an Internet of Actions</a></div>
       <span class="talk-badge">Opening Keynote</span>
     </div>
     <div class="talk">
+      <div class="talk-meta">2021</div>
+      <div class="talk-title"><a href="https://www.youtube.com/watch?v=xtPe4OlLQ2I" target="_blank">Ask a Futurist — Technology Forecasting &amp; Strategy</a></div>
+      <span class="talk-badge">Panel / Workshop</span>
+    </div>
+    <div class="talk">
       <div class="talk-meta">Oct 2019<br>IFTF Ten Year Forecast</div>
-      <div class="talk-title">The Age of Distributed Superpowers</div>
+      <div class="talk-title"><a href="https://youtu.be/aAYRaYmvniw" target="_blank">The Age of Distributed Superpowers</a></div>
       <span class="talk-badge">Opening Keynote</span>
     </div>
     <div class="talk">
       <div class="talk-meta">2021<br>Research Companion</div>
-      <div class="talk-title">Building Climate-Positive Organizations</div>
+      <div class="talk-title"><a href="https://www.youtube.com/watch?v=EQduXU-sNJw" target="_blank">Building Climate-Positive Organizations</a></div>
       <span class="talk-badge">Keynote + Video</span>
     </div>
     <div class="talk">
-      <div class="talk-meta">2015 · Auckland, NZ<br>Beyond the Line of Sight</div>
-      <div class="talk-title">Seeds of Disruption — The Future of Food</div>
-      <span class="talk-badge">Closing Keynote</span>
-    </div>
-    <div class="talk">
       <div class="talk-meta">2013<br>Healthy Communities Data Summit</div>
-      <div class="talk-title">Citizens, Communities and Open Health Data</div>
+      <div class="talk-title"><a href="http://www.youtube.com/watch?v=IwzRzxRuIAg" target="_blank">Citizens, Communities and Open Health Data</a></div>
       <span class="talk-badge">Opening Keynote</span>
     </div>
     <div class="talk">
-      <div class="talk-meta">Ongoing</div>
-      <div class="talk-title">Ask a Futurist — Technology Forecasting &amp; Strategy</div>
-      <span class="talk-badge">Panel / Workshop</span>
+      <div class="talk-meta">2015 · Auckland, NZ<br>Beyond the Line of Sight</div>
+      <div class="talk-title"><a href="http://www.youtube.com/watch?v=-ype2QAMs8s" target="_blank">Seeds of Disruption — The Future of Food</a></div>
+      <span class="talk-badge">Closing Keynote</span>
     </div>
-  </div>
-</section>
-
-<!-- CLIENTS -->
-<section class="clients-section">
-  <p class="s-label s-label-light reveal">Selected Clients</p>
-  <h2 class="s-heading s-heading-light reveal">Organizations I've served</h2>
-  <div class="clients-grid reveal">
-    <span class="client-tag">Facebook</span>
-    <span class="client-tag">Intel</span>
-    <span class="client-tag">Telstra</span>
-    <span class="client-tag">U.S. Department of Defense</span>
-    <span class="client-tag">Syngenta</span>
-    <span class="client-tag">Kaiser Permanente</span>
-    <span class="client-tag">Deloitte</span>
-    <span class="client-tag">Institute for the Future</span>
   </div>
 </section>
 
@@ -468,26 +466,31 @@
 <div class="contact-section" id="contact">
   <div class="contact-left">
     <p class="s-label s-label-light">Contact</p>
-    <h2 class="contact-heading">Let's work together</h2>
-    <p class="contact-sub">Whether you're looking for a keynote speaker, a research lead, a facilitation partner, or a strategic advisor on long-term change — I'd love to hear from you.</p>
-    <a class="contact-link" href="https://www.bradkreit.com/contact">Send a message →</a>
+    <h2 class="contact-heading">Get in touch</h2>
+    <p class="contact-sub">Always happy to connect with curious people — whether you have a question about my research, want to discuss the future of work, or are just exploring ideas.</p>
+    <form class="contact-form" action="https://formspree.io/f/mjgpqdyb" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
   <div class="contact-right">
     <div class="contact-detail">
       <span class="contact-detail-label">Current Role</span>
-      <span class="contact-detail-value">Senior Research Leader, Deloitte Center for Integrated Research</span>
+      <span class="contact-detail-value">Research Leader, Deloitte Center for Integrated Research — Future of Work</span>
     </div>
     <div class="contact-detail">
-      <span class="contact-detail-label">Focus</span>
-      <span class="contact-detail-value">Future of Work</span>
+      <span class="contact-detail-label">Previously</span>
+      <span class="contact-detail-value">Institute for the Future — 10+ years leading foresight projects in global trends, technology, health &amp; food</span>
     </div>
     <div class="contact-detail">
-      <span class="contact-detail-label">Background</span>
-      <span class="contact-detail-value">10+ years at Institute for the Future — Health, Technology, Food &amp; Global Trends</span>
+      <span class="contact-detail-label">Core Skills</span>
+      <span class="contact-detail-value">Strategic Foresight &amp; Horizon Scanning · Executive Communication · Stakeholder Management</span>
     </div>
     <div class="contact-detail">
-      <span class="contact-detail-label">Website</span>
-      <span class="contact-detail-value">bradkreit.com</span>
+      <span class="contact-detail-label">Speaking</span>
+      <span class="contact-detail-value">Keynotes &amp; workshops delivered on five continents</span>
     </div>
   </div>
 </div>
@@ -507,3 +510,5 @@
 
 </body>
 </html>
+
+Go to GitHub, open index.html, click the pencil to edit, select all (Cmd+A / Ctrl+A), paste this in, and commit. Everything is included — the updated hero bio, revised skills section using your LinkedIn copy, updated IFTF intro, YouTube links on all talks, contact form wired to Formspree, clients section removed, and the updated contact details on the right. Let me know how it looks!
