@@ -65,7 +65,8 @@
   .thread-topic { display: flex; align-items: baseline; gap: 1.1rem; padding: .8rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
   .thread-topic:first-child { border-top: 1px solid rgba(255,255,255,.08); }
   .thread-num { font-family: 'Cormorant Garamond', serif; font-size: .85rem; color: var(--accent); opacity: .7; min-width: 1.4rem; }
-  .thread-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); }
+  .thread-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.15); transition: border-color .2s; }
+  .thread-text:hover { border-color: var(--accent); }
   .thread-aside { margin-left: auto; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); white-space: nowrap; }
 
   /* SECTIONS */
@@ -236,28 +237,28 @@
     <div class="thread-topics">
       <div class="thread-topic">
         <span class="thread-num">01</span>
-        <span class="thread-text">Human &amp; machine collaboration at work</span>
+        <a href="https://www.deloitte.com/us/en/insights/topics/talent/human-machine-collaboration.html" target="_blank" class="thread-text">Human &amp; machine collaboration at work</a>
         <span class="thread-aside">Deloitte Insights</span>
       </div>
       <div class="thread-topic">
         <span class="thread-num">02</span>
-        <span class="thread-text">Workforce data, trust &amp; shared value</span>
-        <span class="thread-aside">Quantified Org series</span>
+        <a href="https://www.deloitte.com/us/en/insights/topics/digital-transformation/generative-ai-and-the-future-enterprise.html" target="_blank" class="thread-text">Generative AI &amp; the future of the enterprise</a>
+        <span class="thread-aside">Deloitte Insights</span>
       </div>
       <div class="thread-topic">
         <span class="thread-num">03</span>
-        <span class="thread-text">The shifting demographics of work</span>
-        <span class="thread-aside">Future of Work</span>
+        <a href="https://www.deloitte.com/us/en/insights/topics/talent/building-high-performing-teams.html" target="_blank" class="thread-text">Building high-performing teams</a>
+        <span class="thread-aside">Deloitte Insights</span>
       </div>
       <div class="thread-topic">
         <span class="thread-num">04</span>
-        <span class="thread-text">Long-range foresight &amp; organizational resilience</span>
-        <span class="thread-aside">IFTF legacy</span>
+        <a href="https://www.deloitte.com/us/en/insights/topics/talent/strategies-for-workforce-evolution.html" target="_blank" class="thread-text">The shifting demographics of work</a>
+        <span class="thread-aside">Future of Work</span>
       </div>
       <div class="thread-topic">
         <span class="thread-num">05</span>
-        <span class="thread-text">How teams adapt when AI scales</span>
-        <span class="thread-aside">Deloitte Insights</span>
+        <a href="https://www.youtube.com/watch?v=xtPe4OlLQ2I" target="_blank" class="thread-text">Long-range foresight &amp; organizational resilience</a>
+        <span class="thread-aside">Ask a Futurist</span>
       </div>
     </div>
   </div>
@@ -286,11 +287,11 @@
       <span class="pub-link">Read article →</span>
     </a>
 
-    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/ai-roi-and-team-structure.html" target="_blank">
-      <div class="pub-meta"><span class="pub-year">2025</span><span class="pub-dot"></span><span class="pub-topic">AI Outcomes · Team Design</span></div>
-      <div class="pub-title">Team Structure and AI Outcomes</div>
-      <p class="pub-desc">Counter-intuitive findings: the teams getting the strongest AI results aren't the smallest — they're the most connected and cognitively diverse. A reframe for organizations scaling AI deployment.</p>
-      <p class="pub-byline">With Monika Mahto · Deloitte Insights</p>
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/digital-transformation/generative-ai-and-the-future-enterprise.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">Oct 2024</span><span class="pub-dot"></span><span class="pub-topic">Generative AI · Scenario Planning</span></div>
+      <div class="pub-title">Four Futures of Generative AI in the Enterprise</div>
+      <p class="pub-desc">Scenario planning for strategic resilience — examining four plausible futures for how generative AI could reshape the enterprise, helping leaders plan for uncertainty and build adaptable strategies.</p>
+      <p class="pub-byline">With Laura Shact, Gregory Vert &amp; Jonathan Holdowsky · Deloitte Insights</p>
       <span class="pub-link">Read article →</span>
     </a>
 
@@ -510,5 +511,3 @@
 
 </body>
 </html>
-
-Go to GitHub, open index.html, click the pencil to edit, select all (Cmd+A / Ctrl+A), paste this in, and commit. Everything is included — the updated hero bio, revised skills section using your LinkedIn copy, updated IFTF intro, YouTube links on all talks, contact form wired to Formspree, clients section removed, and the updated contact details on the right. Let me know how it looks!
