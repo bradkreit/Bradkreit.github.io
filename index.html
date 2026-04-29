@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brad Kreit — Foresight Research & Strategy</title>
+<meta name="description" content="Brad Kreit is a Research Leader at Deloitte's Center for Integrated Research focused on the future of work, and a former decade-long researcher at Institute for the Future. Keynote speaker, foresight strategist, and published author.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -25,9 +26,11 @@
     border-bottom: 1px solid var(--rule);
   }
   .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: .04em; }
-  .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+  .nav-links { display: flex; gap: 2.4rem; list-style: none; align-items: center; }
   .nav-links a { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--accent); }
+  .nav-linkedin { display: flex; align-items: center; gap: .4rem; }
+  .nav-linkedin svg { width: 14px; height: 14px; fill: currentColor; }
 
   /* HERO */
   .hero {
@@ -163,7 +166,10 @@
   /* FOOTER */
   footer { background: var(--ink); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.08); }
   .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(255,255,255,.4); }
+  .footer-links { display: flex; align-items: center; gap: 2rem; }
   .footer-note { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,.25); }
+  .footer-linkedin { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; }
+  .footer-linkedin:hover { color: var(--accent); }
 
   /* ANIMATIONS */
   @keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
@@ -208,6 +214,10 @@
     <li><a href="#projects">IFTF Projects</a></li>
     <li><a href="#talks">Talks</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/bradkreit/" target="_blank" class="nav-linkedin">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a></li>
   </ul>
 </nav>
 
@@ -219,7 +229,7 @@
     <p class="hero-title">Research Leader &amp; Futurist</p>
   </div>
   <div class="hero-right">
-    <p class="hero-bio">I am a Research Leader with Deloitte's Center for Integrated Research where I develop thought leadership on the future of work. I previously spent more than a decade with Institute for the Future leading major foresight projects in global trends, technology, health and food. A sought after speaker, I've delivered keynotes and facilitated workshops on five continents.</p>
+    <p class="hero-bio">I am a Research Leader with Deloitte's Center for Integrated Research where I develop thought leadership on the future of work. I previously spent more than a decade with Institute for the Future leading major foresight projects in global trends, technology, health and food. I've delivered keynotes and facilitated workshops on five continents.</p>
     <div class="hero-ctas">
       <a class="btn btn-fill" href="#deloitte">View My Work</a>
       <a class="btn btn-outline" href="#contact">Get in Touch</a>
@@ -268,13 +278,14 @@
 <section class="section" id="deloitte">
   <p class="s-label reveal">Deloitte Insights</p>
   <h2 class="s-heading reveal">Published Research at Deloitte</h2>
-  <p class="s-intro reveal">As a Research Leader with Deloitte's Center for Integrated Research, I produce rigorous thought leadership on how AI, workforce data, and human-machine collaboration are reshaping organizations.</p>
+  <p class="s-intro reveal">As a Research Leader with Deloitte's Center for Integrated Research, I produce rigorous, data-driven thought leadership on how AI, workforce data, and human-machine collaboration are reshaping organizations.</p>
   <div class="pub-grid">
 
     <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/building-high-performing-teams.html" target="_blank">
       <div class="pub-meta"><span class="pub-year">2026</span><span class="pub-dot"></span><span class="pub-topic">Human Capabilities · Resilience</span></div>
       <div class="pub-title">Building High-Performing Teams</div>
       <p class="pub-desc">Explores how human capabilities — not just technical skills — may be the key differentiator in building resilient, high-performing teams as AI reshapes organizational work models.</p>
+      <p class="pub-byline">Deloitte Center for Integrated Research</p>
       <span class="pub-link">Read article →</span>
     </a>
 
@@ -282,13 +293,7 @@
       <div class="pub-meta"><span class="pub-year">Dec 2025</span><span class="pub-dot"></span><span class="pub-topic">Early Career · Gen AI</span></div>
       <div class="pub-title">Entry-Level Jobs &amp; Reskilling for AI</div>
       <p class="pub-desc">New data from a survey of 11,900+ individuals surfaces challenges and opportunities for employers — including how to preserve learning pathways for early-career workers in an AI-accelerated workplace.</p>
-      <span class="pub-link">Read article →</span>
-    </a>
-
-    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/digital-transformation/generative-ai-and-the-future-enterprise.html" target="_blank">
-      <div class="pub-meta"><span class="pub-year">Oct 2024</span><span class="pub-dot"></span><span class="pub-topic">Generative AI · Scenario Planning</span></div>
-      <div class="pub-title">Four Futures of Generative AI in the Enterprise</div>
-      <p class="pub-desc">Scenario planning for strategic resilience — examining four plausible futures for how generative AI could reshape the enterprise, helping leaders plan for uncertainty and build adaptable strategies.</p>
+      <p class="pub-byline">With Sue Cantrell &amp; Monika Mahto · Deloitte Insights</p>
       <span class="pub-link">Read article →</span>
     </a>
 
@@ -296,6 +301,23 @@
       <div class="pub-meta"><span class="pub-year">2025</span><span class="pub-dot"></span><span class="pub-topic">Workforce Demographics · AI</span></div>
       <div class="pub-title">Strategies for Workforce Evolution</div>
       <p class="pub-desc">Examines how AI and demographic shifts — retiring experienced workers, shrinking pipelines — are combining to demand new approaches to workforce agility, knowledge transfer, and upskilling.</p>
+      <p class="pub-byline">Deloitte Center for Integrated Research</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/talent/operating-models-for-humans-ai-agents.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">2025</span><span class="pub-dot"></span><span class="pub-topic">Agentic AI · Operating Models</span></div>
+      <div class="pub-title">Rethinking Operating Models for Humans with Agents</div>
+      <p class="pub-desc">As businesses deploy autonomous AI agents alongside human workers, organizations must rethink workflows, governance, and decision rights — moving beyond bolting AI onto models designed for humans alone.</p>
+      <p class="pub-byline">With Natasha Buckley · Deloitte Insights</p>
+      <span class="pub-link">Read article →</span>
+    </a>
+
+    <a class="pub-card reveal" href="https://www.deloitte.com/us/en/insights/topics/digital-transformation/generative-ai-and-the-future-enterprise.html" target="_blank">
+      <div class="pub-meta"><span class="pub-year">Oct 2024</span><span class="pub-dot"></span><span class="pub-topic">Generative AI · Scenario Planning</span></div>
+      <div class="pub-title">Four Futures of Generative AI in the Enterprise</div>
+      <p class="pub-desc">Scenario planning for strategic resilience — examining four plausible futures for how generative AI could reshape the enterprise, helping leaders plan for uncertainty and build adaptable strategies.</p>
+      <p class="pub-byline">With Laura Shact, Gregory Vert &amp; Jonathan Holdowsky · Deloitte Insights</p>
       <span class="pub-link">Read article →</span>
     </a>
 
@@ -303,6 +325,7 @@
       <div class="pub-meta"><span class="pub-year">Jun 2024</span><span class="pub-dot"></span><span class="pub-topic">Tech Talent · Workforce Strategy</span></div>
       <div class="pub-title">Navigating the Tech Talent Shortage</div>
       <p class="pub-desc">Analyzes the structural forces driving the tech talent gap and outlines how organizations can transform their approach to planning, attracting, and activating technical talent.</p>
+      <p class="pub-byline">With Nate Paynter, Manoj Mishra, Monika Mahto &amp; Sue Cantrell · Deloitte Insights</p>
       <span class="pub-link">Read article →</span>
     </a>
 
@@ -310,6 +333,7 @@
       <div class="pub-meta"><span class="pub-year">2023–2024</span><span class="pub-dot"></span><span class="pub-topic">Workforce Data · Human Performance</span></div>
       <div class="pub-title">The Quantified Organization (Series Lead)</div>
       <p class="pub-desc">A multi-report series examining how organizations can harness workforce data to drive human performance — reframing surveillance as shared value. Based on surveys of 2,000+ workers and 50+ case studies.</p>
+      <p class="pub-byline">Lead author across 4 chapters · Deloitte Insights</p>
       <span class="pub-link">Read the series →</span>
     </a>
 
@@ -317,6 +341,7 @@
       <div class="pub-meta"><span class="pub-year">Nov 2022</span><span class="pub-dot"></span><span class="pub-topic">AI &amp; Future of Work</span></div>
       <div class="pub-title">Strengthening the Bonds of Human and Machine Collaboration</div>
       <p class="pub-desc">Drawing on qualitative interviews across 30 companies, this article examines how human-AI collaboration is reshaping workplace experience — and what organizations must do to ensure these partnerships benefit workers.</p>
+      <p class="pub-byline">With Sue Cantrell &amp; Thomas H. Davenport · Deloitte Insights</p>
       <span class="pub-link">Read article →</span>
     </a>
 
@@ -403,9 +428,9 @@
   <p class="s-intro reveal">I've delivered keynotes all over the world based on my research. While most of my talks are not available publicly, I've collected a few highlights below.</p>
   <div class="reveal">
     <div class="talk">
-      <div class="talk-meta">2019<br>Global Digital Conference</div>
-      <div class="talk-title"><a href="http://www.youtube.com/watch?v=yHeUClAR_Rs" target="_blank">Toward an Internet of Actions</a></div>
-      <span class="talk-badge">Opening Keynote</span>
+      <div class="talk-meta">2021<br>Research Companion</div>
+      <div class="talk-title"><a href="https://www.youtube.com/watch?v=EQduXU-sNJw" target="_blank">Building Climate-Positive Organizations</a></div>
+      <span class="talk-badge">Keynote + Video</span>
     </div>
     <div class="talk">
       <div class="talk-meta">2021</div>
@@ -418,19 +443,19 @@
       <span class="talk-badge">Opening Keynote</span>
     </div>
     <div class="talk">
-      <div class="talk-meta">2021<br>Research Companion</div>
-      <div class="talk-title"><a href="https://www.youtube.com/watch?v=EQduXU-sNJw" target="_blank">Building Climate-Positive Organizations</a></div>
-      <span class="talk-badge">Keynote + Video</span>
-    </div>
-    <div class="talk">
-      <div class="talk-meta">2013<br>Healthy Communities Data Summit</div>
-      <div class="talk-title"><a href="http://www.youtube.com/watch?v=IwzRzxRuIAg" target="_blank">Citizens, Communities and Open Health Data</a></div>
+      <div class="talk-meta">2019<br>Global Digital Conference</div>
+      <div class="talk-title"><a href="http://www.youtube.com/watch?v=yHeUClAR_Rs" target="_blank">Toward an Internet of Actions</a></div>
       <span class="talk-badge">Opening Keynote</span>
     </div>
     <div class="talk">
       <div class="talk-meta">2015 · Auckland, NZ<br>Beyond the Line of Sight</div>
       <div class="talk-title"><a href="http://www.youtube.com/watch?v=-ype2QAMs8s" target="_blank">Seeds of Disruption — The Future of Food</a></div>
       <span class="talk-badge">Closing Keynote</span>
+    </div>
+    <div class="talk">
+      <div class="talk-meta">2013<br>Healthy Communities Data Summit</div>
+      <div class="talk-title"><a href="http://www.youtube.com/watch?v=IwzRzxRuIAg" target="_blank">Citizens, Communities and Open Health Data</a></div>
+      <span class="talk-badge">Opening Keynote</span>
     </div>
   </div>
 </section>
@@ -461,7 +486,7 @@
   <div class="contact-left">
     <p class="s-label s-label-light">Contact</p>
     <h2 class="contact-heading">Get in touch</h2>
-    <p class="contact-sub">Interested in discussing foresight, the future of work, or anything else? Please reach out.</p>
+    <p class="contact-sub">Always happy to connect with curious people — whether you have a question about my research, want to discuss the future of work, or are just exploring ideas.</p>
     <form class="contact-form" action="https://formspree.io/f/mjgpqdyb" method="POST">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Your email" required>
@@ -492,7 +517,10 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-brand">Brad Kreit</span>
-  <span class="footer-note">Foresight Research &amp; Strategy</span>
+  <div class="footer-links">
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/bradkreit/" target="_blank">LinkedIn</a>
+    <span class="footer-note">Foresight Research &amp; Strategy</span>
+  </div>
 </footer>
 
 <script>
